@@ -8,11 +8,17 @@ const caesarCipher = (text, shift, action) => {
     const index = alphabet.indexOf(symbol);
 
     if (index < 0) return symbol;
-    else if (index < alphabetLength) {
-      return alphabet[(index + codeShift) % alphabetLength];
+    else {
+      const cipherSymbolIndex = (index + codeShift) % alphabetLength;
+      if (index < alphabetLength) {
+      return cipherSymbolIndex >= 0
+        ? alphabet[cipherSymbolIndex]
+        : alphabet[alphabetLength + cipherSymbolIndex];
     } else
-      return alphabet[((index + codeShift) % alphabetLength) + alphabetLength];
-  };
+      return cipherSymbolIndex >= 0
+        ? alphabet[cipherSymbolIndex + alphabetLength]
+        : alphabet[2 * alphabetLength + cipherSymbolIndex];
+  };}
 
   return text
     .split('')

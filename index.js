@@ -4,9 +4,12 @@ import { pipeline } from 'stream';
 
 import CipherStr from './tranformStream.js';
 import options from './inputData.js';
+import { stdout } from 'process';
 
-const readStr = fs.createReadStream('./input.txt', 'utf8');
-const writeStr = fs.createWriteStream('./output.txt', 'utf8');
+const readStr = options.input
+  ? fs.createReadStream(options.input, 'utf8')
+  : process.stdin;
+const writeStr = options.output ? fs.createWriteStream(options.output, 'utf8') : stdout;
 const cipherStr = new CipherStr(+options.shift, options.action);
 
 pipeline(readStr, cipherStr, writeStr, (error) => {
