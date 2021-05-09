@@ -4,8 +4,9 @@ const caesarCipher = (text, shift, action) => {
 
   const codeShift = action === 'encode' ? shift : shift * -1;
 
-  const getCipherSymbol = (symbol, shift, action) => {
+  const getCipherSymbol = (symbol, codeShift) => {
     const index = alphabet.indexOf(symbol);
+
     if (index < 0) return symbol;
     else if (index < alphabetLength) {
       return alphabet[(index + codeShift) % alphabetLength];
@@ -15,7 +16,7 @@ const caesarCipher = (text, shift, action) => {
 
   return text
     .split('')
-    .map((item) => getCipherSymbol(item, shift))
+    .map((item) => getCipherSymbol(item, codeShift))
     .join('');
 };
 
