@@ -23,7 +23,7 @@ const caesarCipher = (text, shift, action) => {
   return text
     .split('')
     .map((item) => getCipherSymbol(item, codeShift))
-    .join('');
+    .join('') + '\n';
 };
 
 export default caesarCipher;

@@ -9,8 +9,13 @@ import { stdout } from 'process';
 const readStr = options.input
   ? fs.createReadStream(options.input, 'utf8')
   : process.stdin;
-const writeStr = options.output ? fs.createWriteStream(options.output, 'utf8') : stdout;
-const cipherStr = new CipherStr(+options.shift, options.action);
+const writeStr = options.output
+  ? fs.createWriteStream(options.output, {
+      flags: 'a',
+      encoding: 'utf8',
+    })
+  : stdout;
+const cipherStr = new CipherStr(parseFloat(options.shift, 10), options.action);
 
 pipeline(readStr, cipherStr, writeStr, (error) => {
   if (error) {

@@ -28,12 +28,12 @@ program
     process.exit(1);
   }
 
-  if (!fs.existsSync(options.input))  {
+  if (options.input && !fs.existsSync(options.input))  {
       process.stderr.write('Input file path is not correct.');
       process.exit(1);
   }
 
-  if (!fs.existsSync(options.output)) {
+  if (options.output && !fs.existsSync(options.output)) {
     process.stderr.write('Output file path is not correct.');
     process.exit(1);
   }
