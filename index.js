@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { pipeline } from 'stream';
 
-import CipherStr from './tranformStream.js';
+import CipherStr from './transformStream.js';
 import options from './inputData.js';
 import { stdout } from 'process';
 
@@ -16,6 +16,6 @@ pipeline(readStr, cipherStr, writeStr, (error) => {
   if (error) {
     console.log(error);
   } else {
-    console.log('finished');
+    console.log('Encryption finished');
   }
 });
