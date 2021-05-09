@@ -1,0 +1,23 @@
+{
+  "name": "rss-node-caesar-cipher-cli-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svetlana-tyshkevich/rss-node-caesar-cipher-cli-tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svetlana-tyshkevich/rss-node-caesar-cipher-cli-tool/issues"
+  },
+  "homepage": "https://github.com/svetlana-tyshkevich/rss-node-caesar-cipher-cli-tool#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  }
+}
