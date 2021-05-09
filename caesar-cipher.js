@@ -1,15 +1,15 @@
-const caesarChiper = (text, shift) => {
+const caesarCipher = (text, shift) => {
   const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const alphabetLength = alphabet.length / 2;
   // const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  const getCipherSymbol = (symbol, shift) => {
+  const getCipherSymbol = (symbol, shift, action) => {
     const index = alphabet.indexOf(symbol);
+    const codeShift = action === 'encode' ? shift : -shift;
     if (index < 0) return symbol;
     else if (index < alphabetLength) {
-      console.log(index + shift);
-      return alphabet[(index + shift) % alphabetLength];
-    } else return alphabet[((index + shift) % alphabetLength) + alphabetLength];
+      return alphabet[(index + codeShift) % alphabetLength];
+    } else return alphabet[((index + codeShift) % alphabetLength) + alphabetLength];
   };
 
   return text
@@ -18,6 +18,6 @@ const caesarChiper = (text, shift) => {
     .join('');
 };
 
-
+export default caesarCipher;
 
 
