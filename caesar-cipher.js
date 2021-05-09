@@ -9,8 +9,6 @@ const caesarCipher = (text, shift, action) => {
     if (index < 0) return symbol;
     else if (index < alphabetLength) {
       return alphabet[(index + codeShift) % alphabetLength];
-
-      console.log(alphabet[(index + codeShift) % alphabetLength]);
     } else
       return alphabet[((index + codeShift) % alphabetLength) + alphabetLength];
   };
