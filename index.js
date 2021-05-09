@@ -15,7 +15,7 @@ const writeStr = options.output
       encoding: 'utf8',
     })
   : stdout;
-const cipherStr = new CipherStr(parseFloat(options.shift, 10), options.action);
+const cipherStr = new CipherStr(+options.shift, options.action);
 
 pipeline(readStr, cipherStr, writeStr, (error) => {
   if (error) {

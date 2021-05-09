@@ -14,12 +14,17 @@ program
   const options = program.opts();
 
   if (!options.action) {
-      process.stderr.write('Set action.');
+      process.stderr.write('Action is a required argument.');
       process.exit(1);
   }
 
   if (!options.shift) {
-    process.stderr.write('Set shift.');
+    process.stderr.write('Shift is a required argument.');
+    process.exit(1);
+  }
+
+  if (options.shift && !Number.isInteger(+options.shift)) {
+    process.stderr.write('Shift should be an integer.');
     process.exit(1);
   }
 
